@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sri Venkateswara Multi-Specialty Hospital — Trichy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root{
+  --navy:#1C3A6E;
+  --navy-mid:#254D92;
+  --navy-light:#2E5FAF;
+  --teal:#1C3A6E;
+  --teal-light:#EBF1FA;
+  --teal-mid:#254D92;
+  --red:#B82525;
+  --red-light:#FDF1F1;
+  --gold:#C4922A;
+  --white:#FFFFFF;
+  --bg:#F4F7FC;
+  --bg2:#E8EFF8;
+  --ink:#111827;
+  --muted:#475569;
+  --faint:#94A3B8;
+  --rule:#CBD8EC;
+  --ff-head:'Playfair Display',Georgia,serif;
+  --ff-body:'Source Sans 3',system-ui,sans-serif;
+  --shadow:0 2px 20px rgba(28,58,110,.10);
+}
+
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--ff-body);color:var(--ink);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font-family:var(--ff-body)}
+
+/* ── EMERGENCY STRIP ── */
+.emg-strip{
+  background:#9B1C1C;
+  padding:9px 24px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+}
+.emg-strip .emg-l{
+  font-size:13px;font-weight:600;color:#fff;
+  display:flex;align-items:center;gap:10px;
+}
+.emg-strip .emg-l .dot{
+  width:8px;height:8px;background:#fff;border-radius:50%;
+  animation:blink 1.4s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.emg-strip .emg-r{
+  display:flex;gap:16px;align-items:center;
+}
+.emg-strip a{
+  font-size:13px;font-weight:700;color:#fff;
+  display:flex;align-items:center;gap:5px;
+}
+.emg-strip a:hover{text-decoration:underline}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:var(--white);border-bottom:1px solid var(--rule);
+  box-shadow:0 1px 8px rgba(12,30,60,.07);
+}
+.nav-in{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;height:66px;
+}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-brand .brand-icon{
+  width:42px;height:42px;background:var(--navy);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.nav-brand .brand-icon svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.8}
+.nav-brand .brand-name{font-family:var(--ff-head);font-size:15px;font-weight:700;color:var(--navy);line-height:1.2}
+.nav-brand .brand-sub{font-size:11px;color:var(--muted);font-weight:500}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{
+  font-size:13.5px;font-weight:600;color:var(--muted);
+  padding:6px 12px;border-radius:6px;transition:color .15s,background .15s;
+}
+.nav-links a:hover{color:var(--navy);background:var(--bg)}
+.nav-appt{
+  background:var(--teal);color:#fff!important;
+  padding:8px 18px!important;border-radius:7px;
+}
+.nav-appt:hover{background:#0a6559!important;color:#fff!important}
+.nav-emergency{
+  background:var(--red);color:#fff!important;
+  padding:8px 14px!important;border-radius:7px;font-size:12.5px!important;
+}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:2px;background:var(--navy);border-radius:2px;display:block}
+.mob-menu{
+  display:none;flex-direction:column;
+  background:var(--white);border-top:1px solid var(--rule);
+}
+.mob-menu a{
+  padding:12px 24px;font-weight:600;font-size:14px;color:var(--muted);
+  border-bottom:1px solid var(--rule);transition:color .12s;
+}
+.mob-menu a:hover{color:var(--navy)}
+
+/* ── LAYOUT HELPERS ── */
+.page-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:72px 0}
+.sec-label{
+  font-size:12px;font-weight:700;color:var(--teal);
+  letter-spacing:.04em;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.sec-label::before{content:'';display:block;width:24px;height:2px;background:var(--teal)}
+h2.sec-title{
+  font-family:var(--ff-head);font-size:clamp(1.7rem,3.5vw,2.3rem);
+  font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:12px;
+}
+.sec-intro{font-size:1rem;color:var(--muted);max-width:56ch;line-height:1.7}
+
+/* ── BUTTONS ── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--ff-body);font-weight:700;font-size:.95rem;
+  padding:13px 26px;border-radius:8px;cursor:pointer;
+  border:2px solid transparent;transition:all .18s;
+}
+.btn-primary{background:var(--teal);color:#fff}
+.btn-primary:hover{background:#0a6559;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-outline:hover{background:rgba(255,255,255,.12)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy-mid)}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#111E38 0%,#1C3A6E 60%,#1E3F7A 100%);
+  padding:64px 0 0;
+  overflow:hidden;
+  position:relative;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 50%,rgba(37,77,146,.25) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:52px;align-items:start;
+  max-width:1200px;margin:0 auto;padding:0 24px;
+}
+.hero-eyebrow{
+  font-size:12px;font-weight:600;color:rgba(255,255,255,.45);
+  letter-spacing:.06em;margin-bottom:14px;
+}
+.hero h1{
+  font-family:var(--ff-head);
+  font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:700;color:#fff;line-height:1.15;
+  margin-bottom:18px;
+}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:46ch;margin-bottom:32px;line-height:1.7}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.15);
+  padding-top:32px;gap:0;
+}
+.hero-stat{
+  padding:18px 0;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.hero-stat:last-child{border-right:none}
+.hero-stat .hs-num{
+  font-family:var(--ff-head);font-size:2rem;font-weight:800;
+  color:#fff;line-height:1;margin-bottom:4px;
+}
+.hero-stat .hs-lbl{font-size:12px;color:rgba(255,255,255,.45);font-weight:500}
+
+/* Hero right — specialty grid */
+.spec-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;padding-top:8px;
+}
+.spec-cell{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  padding:18px 14px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  cursor:pointer;transition:background .15s;
+  text-align:center;
+}
+.spec-cell:hover{background:rgba(255,255,255,.12)}
+.spec-cell .sc-icon{font-size:24px;line-height:1}
+.spec-cell .sc-name{font-size:11px;font-weight:600;color:rgba(255,255,255,.65);line-height:1.3}
+.spec-cell.featured{background:rgba(37,77,146,.35);border-color:rgba(100,149,220,.4)}
+.spec-cell.featured .sc-name{color:rgba(255,255,255,.9)}
+
+/* ── ABOUT ── */
+.about{background:var(--white)}
+.about-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-visual{
+  background:linear-gradient(145deg,#111E38,#1C3A6E);border-radius:16px;aspect-ratio:4/3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+  overflow:hidden;position:relative;
+}
+.about-visual::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 70%,rgba(37,77,146,.2),transparent 60%);
+}
+.about-visual-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;width:100%;height:100%;position:relative;
+}
+.av-quad{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;padding:24px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+}
+.av-quad .avq-n{
+  font-family:var(--ff-head);font-size:2.4rem;font-weight:800;
+  color:#fff;line-height:1;
+}
+.av-quad .avq-l{font-size:12px;color:rgba(255,255,255,.45);text-align:center;line-height:1.4}
+.av-quad.teal-bg{background:rgba(28,58,110,.25);border-color:rgba(37,77,146,.35)}
+.about-text .sec-label{margin-top:0}
+.about-text h2{margin-bottom:16px}
+.about-text p{color:var(--muted);margin-bottom:16px;font-size:.97rem;line-height:1.75}
+.about-accreds{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;
+}
+.accred-chip{
+  font-size:12px;font-weight:600;
+  padding:5px 13px;border-radius:20px;
+  background:var(--teal-light);color:var(--navy);
+  border:1px solid rgba(28,58,110,.2);
+}
+
+/* ── DEPARTMENTS ── */
+.depts{background:var(--bg)}
+.dept-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.dept-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+  gap:14px;
+}
+.dept-card{
+  background:var(--white);border:1px solid var(--rule);
+  border-radius:10px;padding:22px 18px;
+  transition:box-shadow .2s,transform .2s;
+  cursor:pointer;
+}
+.dept-card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.dept-card .dc-icon{
+  width:48px;height:48px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:14px;
+}
+.dc-teal{background:var(--teal-light)}
+.dc-navy{background:#EEF2FA}
+.dc-gold{background:#FEF9E7}
+.dept-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:5px}
+.dept-card p{font-size:12px;color:var(--muted);line-height:1.5}
+.dept-card .dc-tag{
+  display:inline-block;font-size:10px;font-weight:700;
+  padding:2px 8px;border-radius:4px;
+  background:var(--teal-light);color:var(--navy);margin-top:12px;
+}
+
+/* ── DOCTORS ── */
+.doctors{background:var(--white)}
+.doctors-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px}
+.doctors-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;
+}
+.doctor-card{
+  border:1px solid var(--rule);border-radius:12px;overflow:hidden;
+  transition:box-shadow .2s;
+}
+.doctor-card:hover{box-shadow:var(--shadow)}
+.dc-photo{
+  height:200px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+  position:relative;overflow:hidden;padding-bottom:0;
+}
+.dc-photo::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:60%;
+  background:linear-gradient(to top,rgba(12,30,60,.8),transparent);
+}
+.dc-avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-head);font-size:1.6rem;font-weight:700;color:#fff;
+  margin-bottom:72px;z-index:1;
+}
+.dc-spec-tag{
+  position:absolute;bottom:14px;left:14px;
+  background:var(--navy-light);color:#fff;
+  font-size:10px;font-weight:700;padding:4px 10px;border-radius:5px;z-index:1;
+}
+.dc-info{padding:16px 18px}
+.dc-info h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.dc-info .dc-qual{font-size:12px;color:var(--muted);margin-bottom:10px}
+.dc-info .dc-meta{
+  display:flex;justify-content:space-between;
+  font-size:11.5px;color:var(--muted);
+  border-top:1px solid var(--rule);padding-top:10px;margin-top:4px;
+}
+.dc-meta .exp{color:var(--teal);font-weight:700}
+.dc-meta .avail{font-weight:600}
+.dc-info .dc-days{
+  font-size:11px;color:var(--faint);margin-top:6px;
+}
+
+/* ── PATIENT SERVICES ── */
+.services{background:var(--bg)}
+.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:56px}
+.services-visual{
+  background:linear-gradient(145deg,#111E38,#1C3A6E);border-radius:14px;padding:28px;
+}
+.services-visual h3{
+  font-family:var(--ff-head);font-size:1.3rem;color:#fff;margin-bottom:20px;font-weight:600;
+}
+.service-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.service-list li{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;background:rgba(255,255,255,.06);border-radius:8px;
+  font-size:13.5px;color:rgba(255,255,255,.75);font-weight:500;
+  border-left:3px solid var(--navy-light);
+}
+.service-list li span{font-size:16px}
+.services-text h2{margin-bottom:16px}
+.services-text p{color:var(--muted);margin-bottom:20px;line-height:1.75}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.svc-item{
+  background:var(--white);border:1px solid var(--rule);border-radius:8px;
+  padding:14px 16px;display:flex;gap:10px;align-items:flex-start;
+}
+.svc-item .si-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.svc-item h4{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.svc-item p{font-size:12px;color:var(--muted);margin:0;line-height:1.5}
+
+/* ── FACILITIES ── */
+.facilities{background:var(--white)}
+.facilities-banner{
+  background:linear-gradient(135deg,#111E38,#1C3A6E);
+  border-radius:14px;padding:36px 40px;margin-bottom:40px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.facilities-banner h2{
+  font-family:var(--ff-head);font-size:1.6rem;color:#fff;
+  margin-bottom:6px;font-weight:700;
+}
+.facilities-banner p{font-size:14px;color:rgba(255,255,255,.55);max-width:44ch}
+.fac-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.fac-card{
+  border:1px solid var(--rule);border-radius:10px;padding:20px;
+  transition:box-shadow .2s;background:var(--white);
+}
+.fac-card:hover{box-shadow:var(--shadow)}
+.fac-card .fc-icon{
+  font-size:28px;margin-bottom:12px;
+}
+.fac-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.fac-card p{font-size:12.5px;color:var(--muted);line-height:1.6}
+.fac-card .fc-avail{
+  margin-top:12px;font-size:11px;font-weight:700;
+  color:#1A6B3F;display:flex;align-items:center;gap:5px;
+}
+.fc-avail::before{
+  content:'';width:6px;height:6px;background:#1A6B3F;
+  border-radius:50%;display:inline-block;
+}
+
+/* ── INSURANCE ── */
+.insurance{background:var(--bg)}
+.ins-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:12px;margin-top:32px;
+}
+.ins-item{
+  background:var(--white);border:1px solid var(--rule);border-radius:8px;
+  padding:14px 16px;font-size:13px;font-weight:600;color:var(--navy);
+  text-align:center;transition:background .15s;
+}
+.ins-item:hover{background:var(--teal-light)}
+
+/* ── APPOINTMENT ── */
+.appointment{
+  background:linear-gradient(150deg,#0F1E3A 0%,#1C3A6E 50%,#1E4490 100%);
+  padding:72px 0;
+}
+.appt-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+  max-width:1200px;margin:0 auto;padding:0 24px;
+}
+.appt-left h2{
+  font-family:var(--ff-head);font-size:clamp(1.8rem,3.5vw,2.4rem);
+  color:#fff;margin-bottom:14px;font-weight:700;line-height:1.2;
+}
+.appt-left p{color:rgba(255,255,255,.55);font-size:.97rem;margin-bottom:28px;line-height:1.75;max-width:42ch}
+.appt-promises{display:flex;flex-direction:column;gap:12px}
+.appt-promise{
+  display:flex;align-items:center;gap:12px;
+  font-size:14px;font-weight:600;color:rgba(255,255,255,.75);
+}
+.ap-check{
+  width:22px;height:22px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:11px;color:#fff;
+}
+.appt-form{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;padding:32px;
+}
+.appt-form h3{
+  font-family:var(--ff-head);font-size:1.2rem;color:#fff;
+  margin-bottom:24px;font-weight:600;
+}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-group{margin-bottom:14px}
+.form-group label{
+  display:block;font-size:12px;font-weight:700;
+  color:rgba(255,255,255,.45);margin-bottom:6px;
+}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:11px 14px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:7px;color:#fff;font-size:.9rem;font-family:var(--ff-body);
+  outline:none;transition:border-color .15s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:var(--teal);
+}
+.form-group input::placeholder{color:rgba(255,255,255,.3)}
+.form-group select{color:rgba(255,255,255,.7)}
+.form-group select option{background:var(--navy);color:#fff}
+.form-group textarea{resize:vertical;height:80px}
+.form-submit{
+  width:100%;padding:13px;background:var(--teal);color:#fff;
+  border:none;border-radius:8px;font-family:var(--ff-body);
+  font-weight:700;font-size:1rem;cursor:pointer;transition:background .18s;
+  margin-top:4px;
+}
+.form-submit:hover{background:#0a6559}
+.form-note{
+  font-size:11.5px;color:rgba(255,255,255,.35);
+  text-align:center;margin-top:10px;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials{background:var(--white)}
+.testi-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:40px;flex-wrap:wrap;gap:16px;
+}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.testi-card{
+  border:1px solid var(--rule);border-radius:12px;padding:26px;
+  position:relative;transition:box-shadow .2s;
+}
+.testi-card:hover{box-shadow:var(--shadow)}
+.testi-card .quote-mark{
+  font-family:var(--ff-head);font-size:5rem;line-height:.8;
+  color:var(--teal-light);font-weight:800;
+  position:absolute;top:14px;right:20px;pointer-events:none;
+}
+.testi-stars{color:var(--gold);font-size:14px;margin-bottom:12px;letter-spacing:1px}
+.testi-text{
+  font-size:14px;color:var(--muted);line-height:1.75;
+  font-style:italic;margin-bottom:20px;max-width:50ch;
+}
+.testi-patient{display:flex;align-items:center;gap:12px}
+.tp-avatar{
+  width:40px;height:40px;border-radius:50%;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--ff-head);font-weight:700;font-size:.95rem;color:#fff;
+  flex-shrink:0;
+}
+.tp-name{font-weight:700;font-size:.88rem;color:var(--navy)}
+.tp-dept{font-size:.78rem;color:var(--muted)}
+
+/* ── CONTACT ── */
+.contact{background:var(--bg)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.contact-info h2{margin-bottom:20px}
+.contact-info p{color:var(--muted);margin-bottom:28px;line-height:1.75}
+.contact-items{display:flex;flex-direction:column;gap:16px}
+.ci{display:flex;gap:14px;align-items:flex-start}
+.ci-icon{
+  width:40px;height:40px;border-radius:9px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+  background:var(--teal-light);
+}
+.ci-label{font-size:11px;font-weight:700;color:var(--faint);margin-bottom:3px}
+.ci-value{font-weight:600;font-size:.9rem;color:var(--navy)}
+.ci-sub{font-size:.82rem;color:var(--muted)}
+.dept-contacts{margin-top:28px}
+.dept-contacts h3{
+  font-size:13px;font-weight:700;color:var(--navy);
+  margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--rule);
+}
+.dept-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dci{
+  background:var(--white);border:1px solid var(--rule);border-radius:7px;
+  padding:10px 13px;
+}
+.dci .dci-dept{font-size:11px;font-weight:700;color:var(--muted)}
+.dci .dci-num{font-size:13px;font-weight:700;color:var(--navy)}
+.map-wrap{
+  border-radius:12px;overflow:hidden;border:1px solid var(--rule);
+  margin-top:24px;
+}
+.map-wrap iframe{width:100%;height:220px;display:block}
+.contact-right{background:var(--white);border-radius:12px;padding:28px;border:1px solid var(--rule)}
+.contact-right h3{
+  font-family:var(--ff-head);font-size:1.1rem;color:var(--navy);
+  margin-bottom:20px;font-weight:600;
+}
+.cform-group{margin-bottom:14px}
+.cform-group label{
+  display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:5px;
+}
+.cform-group input,.cform-group select,.cform-group textarea{
+  width:100%;padding:10px 13px;border:1px solid var(--rule);
+  border-radius:7px;font-size:.9rem;font-family:var(--ff-body);
+  color:var(--ink);outline:none;background:var(--white);transition:border-color .15s;
+}
+.cform-group input:focus,.cform-group select:focus,.cform-group textarea:focus{
+  border-color:var(--teal);
+}
+.cform-group textarea{resize:vertical;height:80px}
+.cform-submit{
+  width:100%;padding:12px;background:var(--navy);color:#fff;
+  border:none;border-radius:7px;font-family:var(--ff-body);
+  font-weight:700;font-size:.95rem;cursor:pointer;transition:background .18s;
+}
+.cform-submit:hover{background:var(--navy-mid)}
+
+/* ── FOOTER ── */
+footer{
+  background:#0F1E3A;color:rgba(255,255,255,.6);
+  padding:52px 0 24px;
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;padding:0 24px;
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;
+}
+.footer-brand .fb-name{
+  font-family:var(--ff-head);font-size:1.15rem;color:#fff;font-weight:700;margin-bottom:10px;
+}
+.footer-brand p{font-size:.85rem;line-height:1.7;max-width:28ch}
+.footer-col h4{
+  font-size:.85rem;font-weight:700;color:#fff;margin-bottom:14px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col ul li a{font-size:.83rem;color:rgba(255,255,255,.5);transition:color .15s}
+.footer-col ul li a:hover{color:#fff}
+.footer-bottom{
+  max-width:1200px;margin:0 auto;padding:20px 24px 0;
+  border-top:1px solid rgba(255,255,255,.09);
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+}
+.footer-bottom p{font-size:.78rem;color:rgba(255,255,255,.3)}
+.footer-cert{display:flex;gap:12px}
+.footer-cert span{
+  font-size:.72rem;font-weight:700;
+  padding:3px 10px;border-radius:4px;
+  background:rgba(196,146,42,.18);color:#C4922A;
+  border:1px solid rgba(196,146,42,.25);
+}
+
+/* ── WHATSAPP FLOAT ── */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:200;
+  width:58px;height:58px;background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s;
+}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:white}
+.wa-pulse{
+  position:absolute;top:2px;right:2px;
+  width:14px;height:14px;background:var(--red);border:2px solid #fff;
+  border-radius:50%;animation:blink 2s infinite;
+}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:94px;right:24px;z-index:300;
+  background:var(--navy);color:#fff;border-radius:10px;
+  padding:12px 20px;font-size:.88rem;font-weight:600;
+  box-shadow:var(--shadow);opacity:0;transform:translateY(12px);
+  transition:all .3s;pointer-events:none;max-width:280px;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-grid,.about-inner,.services-intro,.appt-inner,
+  .contact-inner{grid-template-columns:1fr}
+  .hero{padding:48px 0 0}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .spec-grid{grid-template-columns:repeat(4,1fr)}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .doctors-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  section{padding:48px 0}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .mob-menu.open{display:flex}
+  .spec-grid{grid-template-columns:repeat(3,1fr)}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .page-wrap{padding:0 16px}
+  .dept-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .dept-contact-grid{grid-template-columns:1fr}
+  .hero-btns{flex-direction:column}
+  .appt-inner{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── EMERGENCY STRIP ── -->
+<div class="emg-strip">
+  <div class="emg-l">
+    <div class="dot"></div>
+    24/7 Emergency Services — Always Open
+  </div>
+  <div class="emg-r">
+    <a href="tel:+914312100100">🚨 Emergency: 0431-2100100</a>
+    <a href="tel:+914312100200">🚑 Ambulance: 0431-2100200</a>
+  </div>
+</div>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <div class="nav-in">
+    <div class="nav-brand">
+      <div class="brand-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <div class="brand-name">Sri Venkateswara Hospital</div>
+        <div class="brand-sub">Multi-Specialty · Trichy</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#departments">Departments</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#services">Services</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#contact">Contact</a>
+      <a href="#appointment" class="nav-appt">Book Appointment</a>
+      <a href="tel:+914312100100" class="nav-emergency">🚨 Emergency</a>
+    </div>
+    <div class="hamburger" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="#about" onclick="toggleMob()">About Us</a>
+    <a href="#departments" onclick="toggleMob()">Departments</a>
+    <a href="#doctors" onclick="toggleMob()">Our Doctors</a>
+    <a href="#services" onclick="toggleMob()">Patient Services</a>
+    <a href="#facilities" onclick="toggleMob()">Facilities</a>
+    <a href="#contact" onclick="toggleMob()">Contact</a>
+    <a href="#appointment" onclick="toggleMob()">📅 Book Appointment</a>
+    <a href="tel:+914312100100" onclick="toggleMob()">🚨 Emergency: 0431-2100100</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="hero-eyebrow">TRICHY'S LEADING MULTI-SPECIALTY HOSPITAL · EST. 1998</div>
+      <h1>Complete Healthcare<br>for <em>Every Family</em><br>in Tamil Nadu</h1>
+      <p class="hero-sub">350 beds. 45 specialist doctors. 18 medical departments. Advanced diagnostics, 24/7 emergency care, and compassionate treatment — all under one roof in the heart of Trichy.</p>
+      <div class="hero-btns">
+        <a href="#appointment" class="btn btn-primary">Book Appointment</a>
+        <a href="tel:+914312100100" class="btn btn-outline">🚨 Emergency Line</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hs-num">350</div>
+          <div class="hs-lbl">Beds</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-num">45+</div>
+          <div class="hs-lbl">Specialists</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-num">18</div>
+          <div class="hs-lbl">Departments</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hs-num">25yr</div>
+          <div class="hs-lbl">Of Service</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="spec-grid">
+        <div class="spec-cell featured"><div class="sc-icon">❤️</div><div class="sc-name">Cardiology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🧠</div><div class="sc-name">Neurology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🦴</div><div class="sc-name">Orthopaedics</div></div>
+        <div class="spec-cell"><div class="sc-icon">👁️</div><div class="sc-name">Ophthalmology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🏥</div><div class="sc-name">General Surgery</div></div>
+        <div class="spec-cell featured"><div class="sc-icon">👶</div><div class="sc-name">Paediatrics</div></div>
+        <div class="spec-cell"><div class="sc-icon">🤱</div><div class="sc-name">Obstetrics & Gynaec</div></div>
+        <div class="spec-cell"><div class="sc-icon">🦷</div><div class="sc-name">Dental</div></div>
+        <div class="spec-cell"><div class="sc-icon">🫁</div><div class="sc-name">Pulmonology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🩺</div><div class="sc-name">General Medicine</div></div>
+        <div class="spec-cell featured"><div class="sc-icon">🔬</div><div class="sc-name">Oncology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🫀</div><div class="sc-name">Nephrology</div></div>
+        <div class="spec-cell"><div class="sc-icon">💊</div><div class="sc-name">Endocrinology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🩻</div><div class="sc-name">Radiology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🧬</div><div class="sc-name">Gastroenterology</div></div>
+        <div class="spec-cell"><div class="sc-icon">🏃</div><div class="sc-name">Physiotherapy</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+  <div class="page-wrap">
+    <div class="about-inner">
+      <div class="about-visual">
+        <div class="about-visual-inner">
+          <div class="av-quad teal-bg"><div class="avq-n">1998</div><div class="avq-l">Year founded — serving Trichy for 25+ years</div></div>
+          <div class="av-quad"><div class="avq-n">2.4L</div><div class="avq-l">Patients treated successfully</div></div>
+          <div class="av-quad"><div class="avq-n">98%</div><div class="avq-l">Patient satisfaction score 2025</div></div>
+          <div class="av-quad teal-bg"><div class="avq-n">24/7</div><div class="avq-l">Emergency, ICU and critical care, every day</div></div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="sec-label">About the Hospital</div>
+        <h2 class="sec-title">Trusted by Families Across Trichy and Tamil Nadu</h2>
+        <p>Sri Venkateswara Multi-Specialty Hospital was established in 1998 with one goal: to bring the quality of metropolitan healthcare to the people of Trichy and the surrounding districts. Over 25 years, we have grown from a 50-bed facility to a 350-bed multi-specialty hospital with 45 consultant specialists and 18 clinical departments.</p>
+        <p>Our hospital is equipped with a state-of-the-art cardiac catheterisation lab, a 64-slice CT scanner, 3T MRI, digital X-ray, and a fully automated laboratory. We perform over 4,000 surgeries every year across all specialties.</p>
+        <p>We accept cashless treatment from over 25 insurance providers and all government health schemes including Aarogyasri and PM-JAY.</p>
+        <div class="about-accreds">
+          <span class="accred-chip">NABH Accredited</span>
+          <span class="accred-chip">NABL Laboratory</span>
+          <span class="accred-chip">JCI Standards</span>
+          <span class="accred-chip">Aarogyasri Empanelled</span>
+          <span class="accred-chip">PM-JAY Empanelled</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEPARTMENTS ── -->
+<section class="depts" id="departments">
+  <div class="page-wrap">
+    <div class="dept-header">
+      <div>
+        <div class="sec-label">Clinical Departments</div>
+        <h2 class="sec-title">18 Specialties Under One Roof</h2>
+      </div>
+      <a href="#appointment" class="btn btn-navy" style="white-space:nowrap">Book a Specialist</a>
+    </div>
+    <div class="dept-grid">
+      <div class="dept-card"><div class="dc-icon dc-teal">❤️</div><h3>Cardiology & Cardiac Surgery</h3><p>Catheterisation lab, angioplasty, bypass surgery, echocardiography</p><span class="dc-tag">CATH LAB</span></div>
+      <div class="dept-card"><div class="dc-icon dc-navy">🧠</div><h3>Neurology & Neurosurgery</h3><p>Stroke management, epilepsy, brain tumour surgery, spine surgery</p><span class="dc-tag">24/7 STROKE</span></div>
+      <div class="dept-card"><div class="dc-icon dc-teal">🦴</div><h3>Orthopaedics & Trauma</h3><p>Joint replacement, fracture care, sports injuries, arthroscopy</p><span class="dc-tag">TRAUMA UNIT</span></div>
+      <div class="dept-card"><div class="dc-icon dc-navy">🤱</div><h3>Obstetrics & Gynaecology</h3><p>High-risk pregnancy, laparoscopic surgery, fertility, antenatal care</p><span class="dc-tag">NICU AVAILABLE</span></div>
+      <div class="dept-card"><div class="dc-icon dc-gold">👶</div><h3>Paediatrics & Neonatology</h3><p>Child health, newborn ICU, developmental care, vaccinations</p><span class="dc-tag">NICU LEVEL 3</span></div>
+      <div class="dept-card"><div class="dc-icon dc-teal">🔬</div><h3>Oncology</h3><p>Medical oncology, radiation therapy, chemotherapy, cancer screening</p><span class="dc-tag">CHEMO DAY CARE</span></div>
+      <div class="dept-card"><div class="dc-icon dc-navy">🫁</div><h3>Pulmonology</h3><p>Asthma, COPD, bronchoscopy, sleep apnoea, lung function tests</p><span class="dc-tag">SLEEP LAB</span></div>
+      <div class="dept-card"><div class="dc-icon dc-teal">🧬</div><h3>Gastroenterology</h3><p>Endoscopy, colonoscopy, liver disease, IBD, GI surgeries</p><span class="dc-tag">ENDOSCOPY</span></div>
+      <div class="dept-card"><div class="dc-icon dc-gold">🫀</div><h3>Nephrology & Urology</h3><p>Dialysis, kidney transplant, urological surgeries, stone removal</p><span class="dc-tag">DIALYSIS UNIT</span></div>
+      <div class="dept-card"><div class="dc-icon dc-navy">👁️</div><h3>Ophthalmology</h3><p>Cataract surgery, LASIK, retina, glaucoma, cornea transplant</p><span class="dc-tag">LASER SURGERY</span></div>
+      <div class="dept-card"><div class="dc-icon dc-teal">💊</div><h3>Endocrinology</h3><p>Diabetes, thyroid disorders, hormonal conditions, obesity management</p></div>
+      <div class="dept-card"><div class="dc-icon dc-navy">🩺</div><h3>General Medicine</h3><p>Fever, infections, chronic disease management, health check-ups</p><span class="dc-tag">WALK-IN</span></div>
+      <div class="dept-card"><div class="dc-icon dc-gold">🏥</div><h3>General & Laparoscopic Surgery</h3><p>Hernia, gallbladder, appendix, minimally invasive procedures</p><span class="dc-tag">SAME DAY</span></div>
+      <div class="dept-card"><div class="dc-icon dc-teal">🦷</div><h3>Dental & Maxillofacial</h3><p>Implants, orthodontics, oral surgery, root canal, crowns</p></div>
+      <div class="dept-card"><div class="dc-icon dc-navy">🩻</div><h3>Radiology & Imaging</h3><p>MRI 3T, CT 64-slice, digital X-ray, mammography, ultrasound</p><span class="dc-tag">DIGITAL</span></div>
+      <div class="dept-card"><div class="dc-icon dc-gold">🏃</div><h3>Physiotherapy & Rehabilitation</h3><p>Post-surgery rehab, stroke recovery, sports physiotherapy, pain management</p></div>
+      <div class="dept-card"><div class="dc-icon dc-teal">🧪</div><h3>Pathology & Laboratory</h3><p>NABL-accredited lab, home sample collection, reports online in 4 hours</p><span class="dc-tag">NABL</span></div>
+      <div class="dept-card"><div class="dc-icon dc-navy">🧘</div><h3>Psychiatry & Psychology</h3><p>Depression, anxiety, addiction, de-addiction, counselling services</p><span class="dc-tag">PRIVATE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DOCTORS ── -->
+<section class="doctors" id="doctors">
+  <div class="page-wrap">
+    <div class="doctors-header">
+      <div>
+        <div class="sec-label">Our Medical Team</div>
+        <h2 class="sec-title">Meet the Specialists</h2>
+      </div>
+      <a href="#appointment" class="btn btn-primary">Book a Consultation</a>
+    </div>
+    <div class="doctors-grid">
+
+      <div class="doctor-card">
+        <div class="dc-photo">
+          <div class="dc-avatar">SR</div>
+          <span class="dc-spec-tag">Cardiology</span>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. S. Raghunathan</h3>
+          <div class="dc-qual">MD, DM Cardiology · AIIMS Delhi</div>
+          <div class="dc-meta">
+            <span class="exp">22 yrs experience</span>
+            <span class="avail">Mon–Sat</span>
+          </div>
+          <div class="dc-days">OPD: 9AM – 1PM</div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="dc-photo" style="background:linear-gradient(135deg,#0F3460,#1a4a7a)">
+          <div class="dc-avatar">PV</div>
+          <span class="dc-spec-tag">Neurology</span>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. P. Vijayalakshmi</h3>
+          <div class="dc-qual">MD, DM Neurology · CMC Vellore</div>
+          <div class="dc-meta">
+            <span class="exp">18 yrs experience</span>
+            <span class="avail">Mon–Fri</span>
+          </div>
+          <div class="dc-days">OPD: 10AM – 1PM, 4–6PM</div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="dc-photo" style="background:linear-gradient(135deg,#0B3D2E,#0F7B6C)">
+          <div class="dc-avatar">KM</div>
+          <span class="dc-spec-tag">Orthopaedics</span>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. K. Murugesan</h3>
+          <div class="dc-qual">MS Ortho, Fellowship Joint Replacement</div>
+          <div class="dc-meta">
+            <span class="exp">15 yrs experience</span>
+            <span class="avail">Tue, Thu, Sat</span>
+          </div>
+          <div class="dc-days">OPD: 9AM – 12PM</div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="dc-photo" style="background:linear-gradient(135deg,#3C0959,#6A1785)">
+          <div class="dc-avatar">AL</div>
+          <span class="dc-spec-tag">Obstetrics</span>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. A. Lakshmipriya</h3>
+          <div class="dc-qual">MD, DGO · MRCOG (UK)</div>
+          <div class="dc-meta">
+            <span class="exp">20 yrs experience</span>
+            <span class="avail">Mon–Sat</span>
+          </div>
+          <div class="dc-days">OPD: 9AM – 2PM</div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="dc-photo" style="background:linear-gradient(135deg,#1A3A0A,#2E6B12)">
+          <div class="dc-avatar">TR</div>
+          <span class="dc-spec-tag">Paediatrics</span>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. T. Rajkumar</h3>
+          <div class="dc-qual">MD Paediatrics, Fellowship Neonatology</div>
+          <div class="dc-meta">
+            <span class="exp">12 yrs experience</span>
+            <span class="avail">Mon–Sun</span>
+          </div>
+          <div class="dc-days">OPD: 10AM – 1PM, 5–7PM</div>
+        </div>
+      </div>
+
+      <div class="doctor-card">
+        <div class="dc-photo" style="background:linear-gradient(135deg,#3A1A00,#7A3A00)">
+          <div class="dc-avatar">MS</div>
+          <span class="dc-spec-tag">Oncology</span>
+        </div>
+        <div class="dc-info">
+          <h3>Dr. M. Subramanian</h3>
+          <div class="dc-qual">MD, DM Medical Oncology · Tata Memorial</div>
+          <div class="dc-meta">
+            <span class="exp">16 yrs experience</span>
+            <span class="avail">Mon, Wed, Fri</span>
+          </div>
+          <div class="dc-days">OPD: 9AM – 1PM</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PATIENT SERVICES ── -->
+<section class="services" id="services">
+  <div class="page-wrap">
+    <div class="services-intro">
+      <div class="services-visual">
+        <h3>Patient Care Pathways</h3>
+        <ul class="service-list">
+          <li><span>🚶</span> Outpatient Department (OPD)</li>
+          <li><span>🛏️</span> Inpatient Admission (IPD)</li>
+          <li><span>🚨</span> 24/7 Emergency & Trauma</li>
+          <li><span>🔬</span> Day Care Procedures</li>
+          <li><span>🏠</span> Home Health Services</li>
+          <li><span>📞</span> Tele-Consultation</li>
+          <li><span>🚑</span> Ambulance Services</li>
+          <li><span>💉</span> Vaccination & Preventive Health</li>
+        </ul>
+      </div>
+      <div class="services-text">
+        <div class="sec-label">Patient Services</div>
+        <h2 class="sec-title">Every Step of Your Healthcare Journey</h2>
+        <p>From the moment you walk in to the day you go home, our team coordinates your entire care. Our patient services desk handles appointment scheduling, insurance pre-authorisation, room allocation, and discharge planning — so you focus on getting better, not paperwork.</p>
+        <p>We offer cashless treatment for 25+ insurance providers, and our billing team handles all pre-authorisation documentation directly with the insurer.</p>
+        <div class="svc-grid">
+          <div class="svc-item"><div class="si-icon">📋</div><div><h4>OPD Registration</h4><p>Walk-in or pre-booked. Average wait time under 15 minutes.</p></div></div>
+          <div class="svc-item"><div class="si-icon">🛏️</div><div><h4>Inpatient Admission</h4><p>General, semi-private, private, and suite rooms available.</p></div></div>
+          <div class="svc-item"><div class="si-icon">🏠</div><div><h4>Home Sample Collection</h4><p>Lab samples collected from home. Reports ready in 4 hours.</p></div></div>
+          <div class="svc-item"><div class="si-icon">📱</div><div><h4>Online Reports</h4><p>Lab and radiology reports sent by WhatsApp and email.</p></div></div>
+          <div class="svc-item"><div class="si-icon">💰</div><div><h4>Cashless Insurance</h4><p>25+ insurers accepted. TPA desk open 8AM–8PM.</p></div></div>
+          <div class="svc-item"><div class="si-icon">🌐</div><div><h4>International Patients</h4><p>Visa assistance, translation services, airport transfers.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FACILITIES ── -->
+<section class="facilities" id="facilities">
+  <div class="page-wrap">
+    <div class="facilities-banner">
+      <div>
+        <h2>World-Class Infrastructure</h2>
+        <p>Every diagnostic and treatment facility is within our campus — no referrals, no waiting, no separate visits.</p>
+      </div>
+      <a href="#appointment" class="btn btn-primary">Book a Scan or Test</a>
+    </div>
+    <div class="fac-grid">
+      <div class="fac-card"><div class="fc-icon">🧲</div><h3>MRI 3 Tesla</h3><p>High-resolution whole body MRI. Reports in 2 hours. Open bore for claustrophobic patients.</p><div class="fc-avail">Available 6AM – 10PM daily</div></div>
+      <div class="fac-card"><div class="fc-icon">📡</div><h3>CT Scan 64-Slice</h3><p>Cardiac CT, CT angiography, whole-body scans, emergency trauma protocols.</p><div class="fc-avail">Available 24/7</div></div>
+      <div class="fac-card"><div class="fc-icon">🔬</div><h3>NABL Laboratory</h3><p>Fully automated with Beckman Coulter analysers. Home collection available. 400+ tests.</p><div class="fc-avail">Available 24/7</div></div>
+      <div class="fac-card"><div class="fc-icon">❤️</div><h3>Cardiac Cath Lab</h3><p>Angiography, angioplasty, stenting. Emergency PPCI for heart attacks within 90 minutes.</p><div class="fc-avail">Available 24/7</div></div>
+      <div class="fac-card"><div class="fc-icon">🏥</div><h3>Modular OT Complex</h3><p>12 modular operation theatres with laminar airflow, hybrid OR for vascular procedures.</p><div class="fc-avail">Scheduled + emergency</div></div>
+      <div class="fac-card"><div class="fc-icon">💉</div><h3>ICU & Critical Care</h3><p>40-bed ICU, 10-bed cardiac ICU, 8-bed neuro ICU. 1:2 nurse-to-patient ratio.</p><div class="fc-avail">Available 24/7</div></div>
+      <div class="fac-card"><div class="fc-icon">🩸</div><h3>Blood Bank</h3><p>TNACS-licensed blood bank. All blood components available. 24/7 platelet apheresis.</p><div class="fc-avail">Available 24/7</div></div>
+      <div class="fac-card"><div class="fc-icon">💊</div><h3>In-Patient Pharmacy</h3><p>Round-the-clock pharmacy with all essential drugs and oncology medications.</p><div class="fc-avail">Available 24/7</div></div>
+      <div class="fac-card"><div class="fc-icon">🚑</div><h3>Ambulance Fleet</h3><p>6 ALS-equipped ambulances with paramedics. GPS tracked. Average response: 12 minutes.</p><div class="fc-avail">Available 24/7</div></div>
+      <div class="fac-card"><div class="fc-icon">🍽️</div><h3>Diet & Nutrition</h3><p>Clinical dietitians on-staff. Therapeutic diets prepared in a FSSAI-certified kitchen.</p><div class="fc-avail">Meals 7AM – 9PM</div></div>
+      <div class="fac-card"><div class="fc-icon">🅿️</div><h3>Parking & Transport</h3><p>Free parking for 300 vehicles. Shuttle from Trichy bus stand and railway station.</p><div class="fc-avail">Available 7AM – 9PM</div></div>
+      <div class="fac-card"><div class="fc-icon">📹</div><h3>Endoscopy Suite</h3><p>Video endoscopy, colonoscopy, ERCP, endoscopic ultrasound. Sedation available.</p><div class="fc-avail">Mon – Sat, 8AM – 5PM</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INSURANCE ── -->
+<section class="insurance">
+  <div class="page-wrap">
+    <div class="sec-label">Cashless Treatment</div>
+    <h2 class="sec-title">Accepted Insurance & Government Schemes</h2>
+    <p class="sec-intro">We work directly with your insurer so you never have to pay out-of-pocket. Our TPA desk handles all documentation.</p>
+    <div class="ins-grid">
+      <div class="ins-item">PM-JAY (Ayushman Bharat)</div>
+      <div class="ins-item">Aarogyasri (TN)</div>
+      <div class="ins-item">Chief Minister Insurance</div>
+      <div class="ins-item">Star Health Insurance</div>
+      <div class="ins-item">United India Insurance</div>
+      <div class="ins-item">New India Assurance</div>
+      <div class="ins-item">ICICI Lombard</div>
+      <div class="ins-item">HDFC Ergo</div>
+      <div class="ins-item">Bajaj Allianz</div>
+      <div class="ins-item">Medi Assist TPA</div>
+      <div class="ins-item">Vipul Medcorp TPA</div>
+      <div class="ins-item">Health India TPA</div>
+      <div class="ins-item">Oriental Insurance</div>
+      <div class="ins-item">National Insurance</div>
+      <div class="ins-item">Reliance General</div>
+      <div class="ins-item">Max Bupa</div>
+      <div class="ins-item">Religare Health</div>
+      <div class="ins-item">Niva Bupa</div>
+      <div class="ins-item">Tata AIG</div>
+      <div class="ins-item">+ 6 more</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── APPOINTMENT ── -->
+<section class="appointment" id="appointment">
+  <div class="appt-inner">
+    <div class="appt-left">
+      <h2>Book Your Appointment Today</h2>
+      <p>Fill the form and we will confirm your slot within 30 minutes. Alternatively, send your details on WhatsApp or call our appointment desk directly.</p>
+      <div class="appt-promises">
+        <div class="appt-promise"><div class="ap-check">✓</div>Confirmation within 30 minutes</div>
+        <div class="appt-promise"><div class="ap-check">✓</div>Cashless for 25+ insurers — we handle the paperwork</div>
+        <div class="appt-promise"><div class="ap-check">✓</div>No referral letter needed for OPD appointments</div>
+        <div class="appt-promise"><div class="ap-check">✓</div>Same-day appointments available for emergencies</div>
+        <div class="appt-promise"><div class="ap-check">✓</div>Home sample collection available in Trichy city</div>
+      </div>
+    </div>
+    <div class="appt-form">
+      <h3>Request an Appointment</h3>
+      <form onsubmit="submitAppt(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Patient Name</label><input type="text" placeholder="Full name" required></div>
+          <div class="form-group"><label>Mobile Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+        </div>
+        <div class="form-group">
+          <label>Department / Specialty</label>
+          <select required>
+            <option value="" disabled selected>Select department</option>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+            <option>Orthopaedics</option>
+            <option>Obstetrics & Gynaecology</option>
+            <option>Paediatrics</option>
+            <option>Oncology</option>
+            <option>General Medicine</option>
+            <option>General Surgery</option>
+            <option>Ophthalmology</option>
+            <option>Pulmonology</option>
+            <option>Gastroenterology</option>
+            <option>Nephrology & Urology</option>
+            <option>Endocrinology</option>
+            <option>Dental</option>
+            <option>Physiotherapy</option>
+            <option>Lab Test / Sample</option>
+            <option>MRI / CT / Scan</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Preferred Date</label><input type="date"></div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select>
+              <option>Morning (8AM – 12PM)</option>
+              <option>Afternoon (12PM – 4PM)</option>
+              <option>Evening (4PM – 7PM)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Brief Description (optional)</label>
+          <textarea placeholder="Describe your symptoms or reason for visit..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send via WhatsApp →</button>
+        <p class="form-note">Or call: 0431-2100300 · Appointment desk: Mon–Sat 7AM–7PM, Sun 8AM–2PM</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="testimonials">
+  <div class="page-wrap">
+    <div class="testi-header">
+      <div>
+        <div class="sec-label">Patient Stories</div>
+        <h2 class="sec-title">What Our Patients Say</h2>
+      </div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">I had a heart attack at 2AM and the emergency team had me in the cath lab within 45 minutes. The cardiologist explained every step. It has been six months and I have recovered fully. I owe them my life.</p>
+        <div class="testi-patient">
+          <div class="tp-avatar">RK</div>
+          <div>
+            <div class="tp-name">Rajendran Krishnaswamy</div>
+            <div class="tp-dept">Cardiology · Emergency PPCI</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">My mother had a complicated knee replacement here. The orthopaedic team, the physiotherapy team, and the ward nurses all coordinated so well. She was walking without support in three weeks. Cannot thank them enough.</p>
+        <div class="testi-patient">
+          <div class="tp-avatar">SN</div>
+          <div>
+            <div class="tp-name">Sridhar Narayanan</div>
+            <div class="tp-dept">Orthopaedics · Knee Replacement</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">My son was born premature at 29 weeks and spent six weeks in the NICU here. The neonatology team called us every morning with an update. He is three years old now and completely healthy. The NICU nurses are angels.</p>
+        <div class="testi-patient">
+          <div class="tp-avatar">PM</div>
+          <div>
+            <div class="tp-name">Priya Murugeswari</div>
+            <div class="tp-dept">Paediatrics · NICU</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="page-wrap">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <div class="sec-label">Find Us</div>
+        <h2 class="sec-title">Contact & Location</h2>
+        <p>We are open seven days a week. The emergency department and ICU never close. Walk in anytime — no appointment needed for emergencies.</p>
+        <div class="contact-items">
+          <div class="ci">
+            <div class="ci-icon">📍</div>
+            <div>
+              <div class="ci-label">Address</div>
+              <div class="ci-value">No. 14, Collector Office Road, Trichy – 620 001</div>
+              <div class="ci-sub">Tamil Nadu, India · Near Trichy Junction Railway Station</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">📞</div>
+            <div>
+              <div class="ci-label">Main Switchboard</div>
+              <div class="ci-value">0431-2100000</div>
+              <div class="ci-sub">Mon – Sat: 7AM – 8PM · Sun: 8AM – 2PM</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">🚨</div>
+            <div>
+              <div class="ci-label">Emergency & Ambulance</div>
+              <div class="ci-value">0431-2100100 / 0431-2100200</div>
+              <div class="ci-sub">24 hours · 7 days · No appointment needed</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-icon">✉️</div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value">appointments@svhospital.in</div>
+              <div class="ci-sub">Response within 2 business hours</div>
+            </div>
+          </div>
+        </div>
+        <div class="dept-contacts">
+          <h3>Department Direct Lines</h3>
+          <div class="dept-contact-grid">
+            <div class="dci"><div class="dci-dept">Cardiology</div><div class="dci-num">0431-2100310</div></div>
+            <div class="dci"><div class="dci-dept">Emergency</div><div class="dci-num">0431-2100100</div></div>
+            <div class="dci"><div class="dci-dept">Lab & Reports</div><div class="dci-num">0431-2100330</div></div>
+            <div class="dci"><div class="dci-dept">Radiology</div><div class="dci-num">0431-2100340</div></div>
+            <div class="dci"><div class="dci-dept">Billing & Insurance</div><div class="dci-num">0431-2100350</div></div>
+            <div class="dci"><div class="dci-dept">Appointments</div><div class="dci-num">0431-2100300</div></div>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1d62684.91!2d78.6331!3d10.7902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf50ff4592b41%3A0x2b388d9d4ee93a68!2sTiruchirappalli%2C+Tamil+Nadu!5e0!3m2!1sen!2sin!4v1696000000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="contact-right">
+        <h3>Send Us a Message</h3>
+        <form onsubmit="submitContact(event)">
+          <div class="cform-group"><label>Your Name</label><input type="text" placeholder="Full name" required></div>
+          <div class="cform-group"><label>Mobile / Email</label><input type="text" placeholder="Phone or email" required></div>
+          <div class="cform-group">
+            <label>Topic</label>
+            <select>
+              <option>Appointment Request</option>
+              <option>Insurance / TPA Query</option>
+              <option>Lab Report Query</option>
+              <option>Billing Query</option>
+              <option>Feedback</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="cform-group"><label>Message</label><textarea placeholder="How can we help?" required></textarea></div>
+          <button type="submit" class="cform-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fb-name">Sri Venkateswara Multi-Specialty Hospital</div>
+      <p>Providing compassionate, world-class healthcare to Trichy and Tamil Nadu since 1998.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Departments</h4>
+      <ul>
+        <li><a href="#departments">Cardiology</a></li>
+        <li><a href="#departments">Neurology</a></li>
+        <li><a href="#departments">Orthopaedics</a></li>
+        <li><a href="#departments">Paediatrics</a></li>
+        <li><a href="#departments">Oncology</a></li>
+        <li><a href="#departments">All Departments</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Patient Services</h4>
+      <ul>
+        <li><a href="#services">OPD</a></li>
+        <li><a href="#services">Inpatient</a></li>
+        <li><a href="#services">Emergency</a></li>
+        <li><a href="#insurance">Insurance</a></li>
+        <li><a href="#services">Home Collection</a></li>
+        <li><a href="#appointment">Book Appointment</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Contact</h4>
+      <ul>
+        <li><a href="tel:+914312100000">Main: 0431-2100000</a></li>
+        <li><a href="tel:+914312100100">Emergency: 0431-2100100</a></li>
+        <li><a href="tel:+914312100200">Ambulance: 0431-2100200</a></li>
+        <li><a href="tel:+914312100300">Appointment: 0431-2100300</a></li>
+        <li><a href="mailto:appointments@svhospital.in">appointments@svhospital.in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Sri Venkateswara Multi-Specialty Hospital, Trichy. All rights reserved.</p>
+    <div class="footer-cert">
+      <span>NABH</span>
+      <span>NABL</span>
+      <span>PM-JAY</span>
+      <span>Aarogyasri</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── WHATSAPP FLOAT ── -->
+<a href="https://wa.me/914312100300?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Sri%20Venkateswara%20Hospital." class="wa-float" target="_blank" title="WhatsApp Appointment">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.533 5.845L.036 23.5a.5.5 0 00.606.606l5.713-1.49A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.674-.523-5.195-1.433l-.371-.22-3.843 1.002 1.02-3.748-.242-.386A9.957 9.957 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<div class="toast" id="toast">✓ Opening WhatsApp — we'll confirm your appointment within 30 minutes</div>
+
+<script>
+function toggleMob(){
+  document.getElementById('mobMenu').classList.toggle('open');
+}
+function showToast(msg){
+  const t=document.getElementById('toast');
+  if(msg)t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+function submitAppt(e){
+  e.preventDefault();
+  const f=e.target;
+  const name=f[0].value, phone=f[1].value, dept=f[2].value, date=f[3].value, time=f[4].value, note=f[5].value;
+  const msg=encodeURIComponent(`Hi Sri Venkateswara Hospital,\n\nAppointment Request:\n\nPatient: ${name}\nPhone: ${phone}\nDepartment: ${dept}\nDate: ${date||'Flexible'}\nTime: ${time}\n${note?'Note: '+note:''}\n\nPlease confirm my appointment slot. Thank you.`);
+  window.open(`https://wa.me/914312100300?text=${msg}`,'_blank');
+  showToast('✓ Opening WhatsApp — confirmation within 30 minutes');
+  f.reset();
+}
+function submitContact(e){
+  e.preventDefault();
+  const f=e.target;
+  const msg=encodeURIComponent(`Hi,\n\nName: ${f[0].value}\nContact: ${f[1].value}\nTopic: ${f[2].value}\nMessage: ${f[3].value}`);
+  window.open(`https://wa.me/914312100300?text=${msg}`,'_blank');
+  showToast('✓ Message sent — we will respond within 2 hours');
+  f.reset();
+}
+</script>
+</body>
+</html>
